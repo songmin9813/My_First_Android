@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    >
+    <!--
+    부모 노드에서 padding을 좌우상으로 주면 깔끔한 간격으로 완성
+    그리고 각각의 아이템에 대하여 하단 마진을 주면 더 깔끔해짐
+    layout gravity : 상위 레이아웃의 정렬설정
+    gravity : 현재 뷰의 정렬설정
+    -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="LOGIN"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="24sp"
+        android:layout_marginBottom="16dp"
+        >
+    </TextView>
+    <!--
+    이미지를 가져오는 2가지 방법
+    1. background 사용하기 : 다만 여기에 넣으면 그림이 일그러지는 현상이 발생함
+    -> 너비하고 높이에 무조건 꽉 채워지기 때문
+    2. src 사용하기 : 사용하기 위해 background에 아무것도 넣지 않겠다는 @null을 선언하여야 함
+    -->
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@null"
+        android:src="@drawable/gift_icon"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        >
+    </ImageView>
+    <!--
+    입력할 수 있는 공간 만들기
+    칸 내부에 있는 email/password를 밖으로 빼내고 싶은 경우
+    TextInputLayout, TextInputEditText 사용
+    -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:hint="Email"
+            android:layout_height="50dp"
+            android:background="#ffffff"
+            android:id="@+id/edit_email"
+            android:layout_marginBottom="16dp">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:hint="Password"
+            android:id="@+id/edit_password"
+            android:layout_height="50dp"
+            android:background="#ffffff"
+            android:layout_marginBottom="16dp">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <!--위젯을 사용하고 싶지 않을 경우 아래의 코드 사용
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Email"
+        android:layout_height="50dp"
+        >
+    </EditText>
+    <EditText
+        android:layout_width="match_parent"
+        android:hint="Password"
+        android:layout_height="50dp"
+        >
+    </EditText>-->
+    <!--
+    둥그런 버튼을 만들기 위해 xml 파일을 새로 만들어줘야 함
+    -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_blue"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:id="@+id/button_login"></androidx.appcompat.widget.AppCompatButton>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="or"
+        android:layout_marginBottom="16dp"
+        >
+    </TextView>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_dark_blue"
+        android:text="Login with Facebook"
+        android:id="@+id/button_facebook"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp"
+        >
+    </androidx.appcompat.widget.AppCompatButton>
+    <!--
+    내부에서 LinearLayout을 만드는 것으로 도중 정렬이 가능
+    가로 배치할 때 width로 하나의 텍스트가 다 먹어버리는 행위에 조심
+    -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Forgot Password?"
+            android:layout_weight="1"
+            >
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Sign Up"
+            android:layout_weight="1"
+            >
+        </TextView>
+    </LinearLayout>
+    <!--
+    bulid.gradle(app)에 디자인 관련 소스 받아야 함
+    implementation 'com.android.support:design:28.0.0' 이렇게 입력
+    이후 sync now
+    모든 이미지는 좌상단 Android를 Project로 변경 후 app-src-res-drawable에 소문자+언더바로만 구성하여 저장
+    -->
+</LinearLayout>

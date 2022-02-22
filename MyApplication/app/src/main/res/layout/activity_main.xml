@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:weightSum="9"
+    >
+    <!--
+    weightSum : 전체를 특정 수로 두고 균등히 분배하고 싶을 때 사용
+    -> 각 View에 layout_weight로 가중치를 두면 균등하게 나온다
+
+    LinearLayout : 한 줄로 쭉 정렬하고 싶을 때 사용
+    -> 이때 orientation이 사용 : 정렬 기준을 가로로 잡을지(horizontal) 세로로 잡을지(vertical)
+    RelativeLayout : 각 뷰에서의 관계를 지정하여 배치하고 싶을 때 사용
+    -> left, right, above, below 등의 키워드를 사용하여 배치
+    -> 관계를 배치하기 위해 특정 뷰의 아이디가 필요할 것
+      -> id="@+id/아이디명"을 이용하여 아이디 생성
+
+    width와 height는 필수 값임. 값에 들어가는 인자
+    -> wrap_content : 텍스트에 꽉 채워진 컨테이너를 만들어 줘
+    -> match_parent : 부모(상위 레이아웃)에 꽉 채운 컨테이너를 만들어 줘
+
+    새로운 xml을 만들고 싶다면 res-layout에서 new
+    -->
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/textview_get"
+        android:layout_height="wrap_content"
+        android:text="1"
+        android:textSize="20sp"
+        android:layout_weight="3"
+        >
+    </TextView>
+    <TextView
+        android:id="@+id/TextView_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:textSize="20sp"
+        android:layout_weight="3"
+        >
+    </TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3"
+        android:textSize="20sp"
+        android:layout_weight="3"
+        >
+
+    </TextView>
+</LinearLayout>
